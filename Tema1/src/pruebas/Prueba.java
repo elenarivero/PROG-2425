@@ -9,6 +9,9 @@ public class Prueba {
 		// (5 + (4 - 2) + 3) = 10
 		System.out.println(- b++ + a + c  + b );
 		System.out.println(b);
+		
+		
+		Math.pow(2,	3);
 	}
 
 }

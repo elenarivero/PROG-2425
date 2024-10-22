@@ -1,8 +1,8 @@
-package pruebas;
+package boletin5;
 
 import java.util.Scanner;
 
-public class While {
+public class Ejercicio07 {
 
 	public static void main(String[] args) {
 		int num1, num2;
@@ -36,6 +36,7 @@ public class While {
 		} while (!opc.equals("E"));
 
 		reader.close();
+
 
 	}
 

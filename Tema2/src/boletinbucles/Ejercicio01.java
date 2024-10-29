@@ -1,5 +1,6 @@
 package boletinbucles;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ejercicio01 {
@@ -33,6 +34,11 @@ public class Ejercicio01 {
 			} catch(AssertionError e) {
 				System.out.println(e.getMessage());
 				error = true;
+			} catch(InputMismatchException e) {
+				System.out.println("El tipo no es entero");
+				error = true;
+			} finally {
+				reader.nextLine();
 			}
 		} while (error);
 		

@@ -5,18 +5,15 @@ import java.util.Scanner;
 public class Bucles {
 
 	public static void main(String[] args) {
-		int num = 0;
-		Scanner reader = new Scanner(System.in);
-
-		do {
-			System.out.println("Introduzca un número");
-			num = reader.nextInt();
-		} while (num < 1 || num > 100);
+		int i;
 		
-		System.out.println("Valor válido: " + num);
-
-		System.out.println("Fin del programa");
-		reader.close();
+		for(i=1; i<=10; i++) {
+			i=1;
+			while(i<=5) {
+				System.out.println("Hola");
+				i++;
+			}
+		}
 	}
 
 }

@@ -33,11 +33,11 @@ public class Ejercicio03 {
 				System.out.println("Introduzca otro número:");
 				numB = reader.nextInt();
 				assert (numB > 0) : "Debe introducir un valor mayor que 0";
-			} catch (InputMismatchException e) {
+			} catch (InputMismatchException pepito) {
 				System.out.println("Debe introducir un valor entero");
 				reader.nextLine();
-			} catch (AssertionError e) {
-				System.out.println(e.getMessage());
+			} catch (AssertionError a) {
+				System.out.println(a.getMessage());
 			}
 		} while (numB < 1);
 		

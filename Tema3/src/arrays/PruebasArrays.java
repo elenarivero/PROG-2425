@@ -9,9 +9,17 @@ public class PruebasArrays {
 		double alturas[] = new double[10];
 		String cadenas[] = new String[4];
 		boolean logicos[] = new boolean[8];
+		
+		int numeros[];
+		
 		int num;
 		
 		Scanner reader = new Scanner(System.in);
+		
+		System.out.println("Introduce el tamaño de la tabla");
+		num = reader.nextInt();
+		
+		numeros = new int[num];
 		
 				
 		for(int i=0; i<edades.length; i++) {

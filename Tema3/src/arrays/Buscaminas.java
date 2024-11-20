@@ -34,8 +34,14 @@ public class Buscaminas {
 			}
 		}
 
+		// ¡¡PROHIBIDO!!
+		for(int i=1; i<=6; i++) {
+			posMina = rand.nextInt(0, minas.length);
+			if(minas[posMina] == '*') {
+				i--; // PROHIBIDO
+			}
+		}
 		System.out.println(Arrays.toString(minas));
-
 		
 	}
 

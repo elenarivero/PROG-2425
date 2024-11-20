@@ -1,15 +1,24 @@
-package boletin4;
+package boletin4.unidimensional;
 
 public class Ejercicio04 {
 
 	public static void main(String[] args) {
 		int[] tablaPrueba = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		int indice = 0;
+		int[][] tabla = rellenar(4, 5);
+		
+		indice = buscar(tablaPrueba, 2);
 
-		int ind = buscar(tablaPrueba, 10);
-
-		System.out.println(ind);
+		System.out.println(indice);
 	}
 
+	static int[][] rellenar (int filas, int columnas) {
+		int t[][] = new int[filas][columnas];
+		
+		return t;
+	}
+	
+	
 	static int buscar(int[] tabla, int valor) {
 		// Variable donde almacenar el índice
 		int indice = 0;

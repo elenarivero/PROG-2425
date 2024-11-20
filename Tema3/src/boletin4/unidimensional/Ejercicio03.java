@@ -1,4 +1,4 @@
-package boletin4;
+package boletin4.unidimensional;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

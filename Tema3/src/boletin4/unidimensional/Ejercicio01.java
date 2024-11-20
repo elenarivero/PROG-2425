@@ -1,4 +1,4 @@
-package boletin4;
+package boletin4.unidimensional;
 
 public class Ejercicio01 {
 

@@ -15,11 +15,11 @@ public class Test11 {
 				continue;
 			}
 
-			if (value > 4) {
-				arr[counter] = value + 1;
-			}
+//			if (value > 4) {
+//				arr[counter] = value + 1;
+//			}
 
-			counter++;
+			//counter++;
 		}
 
 		System.out.println(arr[counter]);

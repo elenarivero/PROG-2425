@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Ejercicio03 {
 	
-	
 	static Scanner reader = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		int longitud = leeEnteroPositivo("longitud");
 

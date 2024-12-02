@@ -7,7 +7,6 @@ public class Buscaminas {
 
 	public static void main(String[] args) {
 		Random rand = new Random();
-
 		char minas[] = new char[20];
 
 		final int NUM_MINAS = 6;

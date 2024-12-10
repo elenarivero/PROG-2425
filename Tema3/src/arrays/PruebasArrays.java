@@ -10,6 +10,7 @@ public class PruebasArrays {
 		String cadenas[] = new String[4];
 		boolean logicos[] = new boolean[8];
 		
+		
 		int numeros[];
 		
 		int num;

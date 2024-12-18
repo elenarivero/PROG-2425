@@ -3,8 +3,6 @@ package strings.boletin1;
 public class Ejercicio06 {
 
 	public static void main(String[] args) {
-		String cad1 = "Hola mundo";
-		String cad2 = "Adiós a todos";
 		String cad3 = "Dabale arroz a la zorra el aba";
 		
 		boolean res = esPalindroma(cad3);

@@ -38,27 +38,21 @@ public class Exercise2bis {
 			// Add the letter the shift
 			letter = message.charAt(i);
 
-			// Add the next letter in the alphabet
-			newLetter = (char) (letter + shift);
-			
+			newLetter = letter;
+
 			// if letter is less than Z and less than 9
-			if ((letter >= 'A' && letter <= 'Z') ) {				
-				if (newLetter > 'Z') {
-					// in case is greater than Z
-					cipheredMessage += (char) (newLetter % ('Z' + 1) + 'A');
-				} else {
-					cipheredMessage += newLetter;
-				}
-			} else if(letter >= '0' && letter <= '9') {
-				if (newLetter > '9') {
-					// in case is greater than 9
-					cipheredMessage += (char) (newLetter % ('9' + 1) + '0');
-				} else {
-					cipheredMessage += newLetter;
-				}
-			} else { // Any other char
-				cipheredMessage += letter;
+			if ((letter >= 'A' && letter <= 'Z')) {
+
+				// Add the next letter in the alphabet
+				// Obtain a value between 0 and 25
+				newLetter = (char) (((letter - 'A' + shift) % 26) + 'A');
+
+			} else if (letter >= '0' && letter <= '9') {
+				newLetter = (char) (((letter - '0' + shift) % 10) + '0');
 			}
+			// Any other char
+			cipheredMessage += newLetter;
+
 		}
 
 		// Print the message ciphered

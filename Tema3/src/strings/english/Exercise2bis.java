@@ -35,22 +35,21 @@ public class Exercise2bis {
 
 		// Loop to read the message
 		for (int i = 0; i < message.length(); i++) {
-			// Add the letter the shift
+			// Current letter of the message
 			letter = message.charAt(i);
 
+			// The newLetter is the current letter
 			newLetter = letter;
 
-			// if letter is less than Z and less than 9
 			if ((letter >= 'A' && letter <= 'Z')) {
-
-				// Add the next letter in the alphabet
-				// Obtain a value between 0 and 25
+				// Obtain a value between 0 and 25. Then, add the value of 'A'
 				newLetter = (char) (((letter - 'A' + shift) % 26) + 'A');
 
 			} else if (letter >= '0' && letter <= '9') {
+				// Obtain a value between 0 and 9. Then, add the value of '0'
 				newLetter = (char) (((letter - '0' + shift) % 10) + '0');
 			}
-			// Any other char
+			// Append the newLetter
 			cipheredMessage += newLetter;
 
 		}

@@ -2,15 +2,11 @@ package strings.english;
 
 import java.util.Scanner;
 
-public class Exercise02 {
+public class Exercise2bis {
 
 	public static void main(String[] args) {
 		// "ABCEDFGHIJKLMNOPQRSTUVWXYZ" -- 26
-		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		
-		// Numbers
-		String numbers = "0123456789";
-		
+
 		// User message
 		String message = "";
 
@@ -25,12 +21,6 @@ public class Exercise02 {
 
 		// Variable to save the shift
 		int shift = 0;
-		
-		// Position of the letter in the alphabet
-		int posLetter;
-		
-		// Position of the number in numbers
-		int posNumber;
 
 		// Scanner to read from console
 		Scanner reader = new Scanner(System.in);
@@ -47,21 +37,28 @@ public class Exercise02 {
 		for (int i = 0; i < message.length(); i++) {
 			// Add the letter the shift
 			letter = message.charAt(i);
-			newLetter = letter;
+
+			// Add the next letter in the alphabet
+			newLetter = (char) (letter + shift);
 			
-			posLetter = alphabet.indexOf(letter);
-			posNumber = numbers.indexOf(letter);
-			
-			if(posLetter >= 0) {
-				posLetter = (posLetter + shift) % alphabet.length();
-				newLetter = alphabet.charAt(posLetter);
-			} else if (posNumber >= 0){
-				posNumber = (posNumber + shift) % numbers.length();
-				newLetter = numbers.charAt(posNumber);
-			}			
-			
-			cipheredMessage += newLetter;
-			
+			// if letter is less than Z and less than 9
+			if ((letter >= 'A' && letter <= 'Z') ) {				
+				if (newLetter > 'Z') {
+					// in case is greater than Z
+					cipheredMessage += (char) (newLetter % ('Z' + 1) + 'A');
+				} else {
+					cipheredMessage += newLetter;
+				}
+			} else if(letter >= '0' && letter <= '9') {
+				if (newLetter > '9') {
+					// in case is greater than 9
+					cipheredMessage += (char) (newLetter % ('9' + 1) + '0');
+				} else {
+					cipheredMessage += newLetter;
+				}
+			} else { // Any other char
+				cipheredMessage += letter;
+			}
 		}
 
 		// Print the message ciphered

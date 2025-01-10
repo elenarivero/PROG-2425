@@ -56,7 +56,7 @@ public class Exercise02 {
 				posLetter = (posLetter + shift + 26) % alphabet.length();
 				newLetter = alphabet.charAt(posLetter);
 			} else if (posNumber >= 0){
-				posNumber = (posNumber + shift + 26) % numbers.length();
+				posNumber = (posNumber + shift + 10) % numbers.length();
 				newLetter = numbers.charAt(posNumber);
 			}			
 			

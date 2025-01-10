@@ -43,11 +43,11 @@ public class Exercise2bis {
 
 			if ((letter >= 'A' && letter <= 'Z')) {
 				// Obtain a value between 0 and 25. Then, add the value of 'A'
-				newLetter = (char) (((letter - 'A' + shift) % 26) + 'A');
+				newLetter = (char) (((letter - 'A' + shift + 26) % 26) + 'A');
 
 			} else if (letter >= '0' && letter <= '9') {
 				// Obtain a value between 0 and 9. Then, add the value of '0'
-				newLetter = (char) (((letter - '0' + shift) % 10) + '0');
+				newLetter = (char) (((letter - '0' + shift + 10) % 10) + '0');
 			}
 			// Append the newLetter
 			cipheredMessage += newLetter;

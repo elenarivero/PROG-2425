@@ -53,10 +53,10 @@ public class Exercise02 {
 			posNumber = numbers.indexOf(letter);
 			
 			if(posLetter >= 0) {
-				posLetter = (posLetter + shift) % alphabet.length();
+				posLetter = (posLetter + shift + 26) % alphabet.length();
 				newLetter = alphabet.charAt(posLetter);
 			} else if (posNumber >= 0){
-				posNumber = (posNumber + shift) % numbers.length();
+				posNumber = (posNumber + shift + 26) % numbers.length();
 				newLetter = numbers.charAt(posNumber);
 			}			
 			

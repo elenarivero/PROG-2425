@@ -1,5 +1,6 @@
 package colecciones.boletin1;
 
+import java.util.Collections;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
@@ -21,6 +22,11 @@ public class Ejercicio04 {
 			conjuntoNumeros.add(numero);
 		}
 
+		int maximo = Collections.max(conjuntoNumeros);
+		int minimo = Collections.min(conjuntoNumeros);
+		
+		System.out.println(maximo);
+		System.out.println(minimo);
 		System.out.println(conjuntoNumeros);
 
 	}

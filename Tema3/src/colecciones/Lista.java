@@ -1,6 +1,7 @@
 package colecciones;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Lista {
 
@@ -10,6 +11,10 @@ public class Lista {
 		listaNumeros1.add(2); //0
 		listaNumeros1.add(3); //1
 		listaNumeros1.add(4); //2
+		
+		// Clonar una lista en otra
+		List<Integer> listaCopia = (List<Integer>) listaNumeros1.clone();
+		System.out.println("Lista copia: " + listaCopia);
 		
 		listaNumeros1.add(1, 8);
 		listaNumeros1.addAll(1, listaNumeros2);

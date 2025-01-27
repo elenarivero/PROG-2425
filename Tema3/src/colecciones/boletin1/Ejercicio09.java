@@ -1,5 +1,6 @@
 package colecciones.boletin1;
 
+import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -32,34 +33,14 @@ public class Ejercicio09 {
 			System.out.println("Introduzca 5 números:");			
 			for (int i = 1; i <= 5; i++) {
 				numero = reader.nextInt();
-				// Comprobamos si el número está ya en el mapa
-				valor = numeros.get(numero);
-				if (valor == null) {
-					// Si el número no está lo añadimos con clave=1
-					numeros.put(numero, 1);
-				} else {
-					// Si el número ya está en el mapa incrementamos en 1 su valor
-					valor++;
-					// Modificamos el valor del número que ya está
-					numeros.put(numero, valor);
-				}
+				addNumber(numero, numeros);
 			}
 
 			// Pedimos 2 estrellas
 			System.out.println("Introduzca 2 estrellas:");
 			for (int i = 1; i <= 2; i++) {
 				numero = reader.nextInt();
-				// Comprobamos si la estrella ya está
-				valor = estrellas.get(numero);
-				if (valor == null) {
-					// Si la estrella no está almacenada se añade con valor=1
-					estrellas.put(numero, 1);
-				} else {
-					// Incrementamos el valor
-					valor++;
-					// Se actualiza el valor de la estrella
-					estrellas.put(numero, valor);
-				}
+				addNumber(numero, estrellas);
 			}
 
 			System.out.println("Conteo actual: ");
@@ -73,4 +54,17 @@ public class Ejercicio09 {
 		reader.close();
 	}
 
+	static void addNumber(int number, Map<Integer, Integer> mapa) {
+		// Comprobamos si la estrella ya está
+		Integer valor = mapa.get(number);
+		if (valor == null) {
+			// Si la estrella no está almacenada se añade con valor=1
+			mapa.put(number, 1);
+		} else {
+			// Incrementamos el valor
+			valor++;
+			// Se actualiza el valor de la estrella
+			mapa.put(number, valor);
+		}
+	}
 }

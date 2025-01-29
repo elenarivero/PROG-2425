@@ -12,6 +12,9 @@ public class Lista {
 		listaNumeros1.add(3); //1
 		listaNumeros1.add(4); //2
 		
+		listaNumeros1.remove(1);
+		System.out.println(listaNumeros1);
+		
 		// Clonar una lista en otra
 		List<Integer> listaCopia = (List<Integer>) listaNumeros1.clone();
 		System.out.println("Lista copia: " + listaCopia);

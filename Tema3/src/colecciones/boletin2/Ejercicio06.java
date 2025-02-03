@@ -19,78 +19,119 @@ public class Ejercicio06 {
 
 		// Conjunto para almacenar los teléfonos
 		Set<Integer> telefonos;
-		
+
 		// Opción elegida
 		int opc;
 
 		// Nombre de la persona
 		String nombre;
-		
+
 		// Variable para almacenar un teléfono
 		int telefono;
 
+		// Siempre que tengamos un menú de opciones se hace con do-while y dentro un
+		// switch
 		do {
+			// Pintamos el menú
 			menu();
+
+			// Pedimos una opción al usuario
 			System.out.println("Introduzca una opción:");
 			opc = reader.nextInt();
+
+			// Este nextLine() me sirve para limpiar el Scanner
 			reader.nextLine();
 
+			// Compruebo el valor de la opción
 			switch (opc) {
-			case 1 -> {
+			case 1 -> { // 1. Añadir persona
+
+				// Le preguntamos por el nombre de la persona a añadir
 				nombre = leeNombre();
-				// Comprobamos si la persona está en la agenda	
-				if(agenda.containsKey(nombre)) {
+
+				// Comprobamos si la persona está en la agenda
+				if (agenda.containsKey(nombre)) {
 					System.out.println("La persona ya existe");
 				} else {
 					agenda.put(nombre, new HashSet<Integer>());
 				}
 			}
-			case 2 -> {
+			case 2 -> { // 2. Añadir teléfono
+
+				// Preguntamos por el nombre de la persona a la que añadir el teléfono
 				nombre = leeNombre();
-				if(agenda.containsKey(nombre)) {
+
+				// Comprobamos si la persona existe
+				if (agenda.containsKey(nombre)) {
+
+					// Tomamos los teléfonos de la persona en cuestión
 					telefono = leeTelefono();
+
 					// Almaceno en teléfonos el conjunto asociado a nombre
 					telefonos = agenda.get(nombre);
-					
+
 					// Añadimos el teléfono al conjunto
-					if(telefonos.add(telefono)) {
+					if (telefonos.add(telefono)) {
+						// Si devuelve true es que el teléfono no existía y se ha añadido correctamente
 						System.out.println("El teléfono se ha añadido correctamente");
 					} else {
+						// Si devuelve true es que el teléfono ya existía y no se ha podido añadir
 						System.out.println("El teléfono ya existe para la persona dada");
 					}
 				} else {
+					// Si la persona no está en el mapa mostramos el mensaje correspondiente
 					System.out.println("La persona no existe");
 				}
 			}
-			case 3 -> {
+			case 3 -> {// 3. Mostrar teléfonos
 				// Leemos el nombre
 				nombre = leeNombre();
-				if(agenda.containsKey(nombre)) {
+
+				// Comprobamos si la persona existe
+				if (agenda.containsKey(nombre)) {
+					// Imprimimos los teléfonos de la persona
 					System.out.println(nombre + ": " + agenda.get(nombre));
 				} else {
+					// Mensaje para indicar que la persona introducida no existe
 					System.out.println("La persona no existe");
 				}
 			}
-			case 4 -> {// Eliminar el teléfono de una persona
+			case 4 -> {// 4. Eliminar el teléfono de una persona
 				// Preguntamos el nombre de la persona
 				nombre = leeNombre();
-				if(agenda.containsKey(nombre)) {
+
+				// Obtenemos los teléfonos de la persona. Si la persona no existe devolverá null
+				telefonos = agenda.get(nombre);
+
+				// Comprobamos si la persona existe
+				if (telefonos != null) {
+
+					// Si la persona existe preguntamos por el teléfono a eliminar
 					telefono = leeTelefono();
-					telefonos = agenda.get(nombre);
-					if(telefonos.remove(telefono)) {
+
+					if (telefonos.remove(telefono)) {
+						// Si devuelve true es que se ha podido eliminar correctamente
 						System.out.println("Teléfono eliminado correctamente");
 					} else {
+						// Si devuelve false es que el teléfono no existía en el conjunto y no se podía
+						// eliminar
 						System.out.println("El teléfono no existe.");
 					}
 				} else {
+					// Indicamos que la persona introducida no existe
 					System.out.println("La persona no existe");
 				}
 			}
 			case 5 -> {// Eliminar persona
+				
+				// Pedimos el nombre de la persona a eliminar
 				nombre = leeNombre();
-				if(agenda.remove(nombre)!=null) {
+				
+				if (agenda.remove(nombre) != null) {
+					// Si al eliminar devuelve un valor distinto de null es que se ha podido eliminar correctamente
 					System.out.println("Se ha eliminado correctamente");
 				} else {
+					// Si devuelve null es que la persona no existe en el mapa
 					System.out.println("La persona no existe");
 				}
 			}
@@ -110,7 +151,7 @@ public class Ejercicio06 {
 		nombre = reader.nextLine();
 		return nombre;
 	}
-	
+
 	private static int leeTelefono() {
 		int telefono;
 		System.out.println("Introduzca un teléfono:");

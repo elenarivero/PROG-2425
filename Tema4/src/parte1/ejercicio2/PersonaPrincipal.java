@@ -13,7 +13,7 @@ public class PersonaPrincipal {
 		String nombre;
 		String apellidos;
 		int edad;
-		
+
 		// Creamos el Scanner
 		Scanner reader = new Scanner(System.in);
 
@@ -33,8 +33,7 @@ public class PersonaPrincipal {
 		reader.nextLine();
 
 		per1 = new Persona(dni, nombre, apellidos, edad);
-		
-		
+
 		// Pedimos los datos de la persona 2
 		System.out.println("Datos de la Persona 2");
 		System.out.println("Introduzca el dni");
@@ -50,13 +49,12 @@ public class PersonaPrincipal {
 		edad = reader.nextInt();
 
 		per2 = new Persona(dni, nombre, apellidos, edad);
-		
-		
+
 		// Imprimimos los datos de forma bonita
-		System.out.println(per1.nombre + " " + per1.apellidos + " con dni " + per1.dni + (per1.edad < 18 ? " no" : "")
-				+ " es mayor de edad");
-		System.out.println(per2.nombre + " " + per2.apellidos + " con dni " + per2.dni + (per2.edad < 18 ? " no" : "")
-				+ " es mayor de edad");
+		System.out.println(per1.getNombre() + " " + per1.getApellidos() + " con dni " + per1.getDni()
+				+ (per1.getEdad() < 18 ? " no" : "") + " es mayor de edad");
+		System.out.println(per2.getNombre() + " " + per2.getApellidos() + " con dni " + per2.getDni()
+				+ (per2.getEdad() < 18 ? " no" : "") + " es mayor de edad");
 
 		// Cerramos el Scanner
 		reader.close();

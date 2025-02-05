@@ -1,10 +1,12 @@
 package parte1.ejercicio4;
 
+import parte1.ejercicio2.*;
+
 public class Articulo {
 
 	String nombre;
 	double precio;
-	final double IVA = 21;
+	public static final double IVA = 21;
 	int cuantosQuedan;
 	
 	public Articulo(String nombre, double precio, int cuantosQuedan) {

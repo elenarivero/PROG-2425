@@ -112,4 +112,32 @@ class Persona {
 		this.edad = edad;
 	}
 
+	public boolean esMayorEdad() {
+		boolean res = false;
+		if (edad >= 18) {
+			res = true;
+		}
+		return res;
+	}
+
+	@Override
+	public String toString() {
+		String res = "Nombre: " + nombre + "\n";
+		res += "Apellidos: " + apellidos + "\n";
+		res += "DNI: " + dni + "\n";
+		res += "Edad: " + edad + "\n";
+		return res;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean res = false;
+
+		Persona nuevaPersona = (Persona) obj;
+
+		if (this.dni.equals(nuevaPersona.dni)) {
+			res = true;
+		}
+		return res;
+	}
 }

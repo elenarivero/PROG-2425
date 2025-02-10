@@ -16,4 +16,10 @@ public class Punto {
 		this.x = x;
 		this.y = y;
 	}
+	
+	public double distancia(Punto p) {
+		double cateto = Math.pow(p.x-this.x, 2);
+		
+		return 0.0;
+	}
 }

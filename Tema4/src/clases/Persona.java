@@ -5,14 +5,16 @@ public class Persona {
 	int edad;
 	double estatura;
 	String DNI;
-	static String hoy;
+	static DiaSemana hoy = DiaSemana.DOMINGO;
+	
+	enum DiaSemana { LUNES, MARTES, MIÉRCOLES, JUEVES, VIERNES, SÁBADO, DOMINGO};
 
 	public static void hoyEs(int dia) {
 		hoy = switch(dia) {
-		case 1 -> "Lunes";
-		case 2 -> "Martes";
+		case 1 -> DiaSemana.LUNES;
+		case 2 -> DiaSemana.MARTES;
 		// ...
-		default -> "Domingo";
+		default -> DiaSemana.DOMINGO;
 		};
 	}
 	

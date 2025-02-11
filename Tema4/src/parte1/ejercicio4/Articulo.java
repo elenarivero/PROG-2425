@@ -1,13 +1,11 @@
 package parte1.ejercicio4;
 
-import parte1.ejercicio2.*;
-
 public class Articulo {
 
-	String nombre;
-	double precio;
+	private String nombre;
+	private double precio;
 	public static final double IVA = 21;
-	int cuantosQuedan;
+	private int cuantosQuedan;
 	
 	public Articulo(String nombre, double precio, int cuantosQuedan) {
 		if(nombre != null && !nombre.isBlank()) {

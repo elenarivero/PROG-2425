@@ -53,7 +53,6 @@ public class CuentaCorriente{
 			this.saldo = saldoInicial;
 		}
 
-		this.nacion = Nacionalidad.valueOf(nacionalidad);
 		
 		switch (nacionalidad) {
 		case "EXTRANJERA" -> this.nacion = Nacionalidad.EXTRANJERA;

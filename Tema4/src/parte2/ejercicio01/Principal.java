@@ -14,8 +14,10 @@ public class Principal {
 		cuentas.add(c1);
 //		cuentas.add(c2);
 		
-		System.out.println(cuentas);
-		System.out.println(cuentas.contains(c2));
+//		System.out.println(cuentas);
+//		System.out.println(cuentas.contains(c2));
+		
+		System.out.println(Boolean.parseBoolean("false"));
 
 	}
 

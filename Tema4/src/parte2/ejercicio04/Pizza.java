@@ -1,5 +1,7 @@
 package parte2.ejercicio04;
 
+import java.util.Objects;
+
 public class Pizza {
 
 	enum Tamaño {
@@ -19,6 +21,7 @@ public class Pizza {
 	private Tipo tipo = Tipo.MARGARITA;
 	private Estado estado = Estado.PEDIDA;
 
+	
 	public Pizza(int codigo, String tamaño, String tipo) {
 		if (codigo > 0) {
 			this.codigo = codigo;
@@ -80,4 +83,27 @@ public class Pizza {
 		case "PEDIDA", "SERVIDA" -> this.estado = Estado.valueOf(estado);
 		}
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean res = false;
+
+		Pizza pizza2 = (Pizza) obj;
+		if (this.codigo == pizza2.codigo) {
+			res = true;
+		}
+
+		return res;
+	}
+
+	@Override
+	public String toString() {
+		return codigo + ": " + tamaño + " - " + tipo + " - " + estado;
+	}
+
 }

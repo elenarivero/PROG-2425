@@ -21,6 +21,11 @@ public class Pizza {
 	private Tipo tipo = Tipo.MARGARITA;
 	private Estado estado = Estado.PEDIDA;
 
+	public Pizza(int codigo) {
+		if (codigo > 0) {
+			this.codigo = codigo;
+		}
+	}
 	
 	public Pizza(int codigo, String tamaño, String tipo) {
 		if (codigo > 0) {

@@ -48,4 +48,8 @@ public class PizzaCRUD {
 		
 		return res;
 	}
+	
+	public static boolean eliminaPizza(Pizza p) {
+		return pizzas.remove(p);
+	}
 }

@@ -6,16 +6,16 @@ import java.util.Set;
 public class PizzaCRUD {
 
 	// Atributo que va a ser la colección donde almacenar nuestros objetos
-	private Set<Pizza> pizzas = new HashSet<Pizza>();
+	private static Set<Pizza> pizzas = new HashSet<Pizza>();
 
-	public void listarPizzas() {
+	public static void listarPizzas() {
 		for (Pizza p : pizzas) {
 			System.out.println(p);
 			System.out.println("---------------------");
 		}
 	}
 
-	public boolean añadePizza(Pizza p) {
+	public static boolean añadePizza(Pizza p) {
 		return pizzas.add(p);
 	}
 
@@ -25,7 +25,7 @@ public class PizzaCRUD {
 	 * @param codigo Código de la pizza a buscar
 	 * @return Objeto Pizza que tiene el mismo código introducido. null si no existe
 	 */
-	public Pizza buscaPizza(int codigo) {
+	public static Pizza buscaPizza(int codigo) {
 		Pizza p = null;
 		
 		for(Pizza pBusqueda : pizzas) {
@@ -35,5 +35,17 @@ public class PizzaCRUD {
 		}
 		
 		return p;
+	}
+	
+	public static boolean modificarEstado(int codigo) {
+		boolean res = false;
+		
+		Pizza p = buscaPizza(codigo);
+		if(p != null) {
+			p.setEstado("Servida");
+			res = true;
+		}
+		
+		return res;
 	}
 }

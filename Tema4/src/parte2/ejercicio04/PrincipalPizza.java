@@ -10,7 +10,7 @@ public class PrincipalPizza {
 		int opc;
 		int codigo;
 		
-		PizzaCRUD pizzas = new PizzaCRUD();
+		//PizzaCRUD pizzas = new PizzaCRUD();
 
 		Pizza pizza;
 		
@@ -22,16 +22,19 @@ public class PrincipalPizza {
 			opc = reader.nextInt();
 			reader.nextLine();
 			switch (opc) {
-			case 1 -> pizzas.listarPizzas();
+			case 1 -> PizzaCRUD.listarPizzas();
 			case 2 -> {
 				pizza = creaPizza();
-				pizzas.añadePizza(pizza);
+				if(PizzaCRUD.añadePizza(pizza)) {
+					System.out.println("Pizza creada correctamente.");
+				} else {
+					System.out.println("Ya existe la pizza que se quiere añadir");
+				}
 			}
 			case 3 -> {
 				codigo = pedirCodigo();
-				pizza = pizzas.buscaPizza(codigo);
-				if(pizza != null) {
-					pizza.setEstado("Servida");
+				if(PizzaCRUD.modificarEstado(codigo)) {
+					System.out.println("Modificado correctamente");
 				} else {
 					System.out.println("La pizza no existe");
 				}

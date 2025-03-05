@@ -5,33 +5,44 @@ import java.util.Set;
 
 public class DiscoCRUD {
 
-	private static Set<Disco> listaDiscos = new HashSet<>();
+	private static HashSet<Disco> listaDiscos = new HashSet<>();
 	
 	public static boolean añadeDisco(Disco d) {
 		return listaDiscos.add(d);
 	}
 	
 	public static void pintaLista() {
-		System.out.println(listaDiscos);
+		for(Disco disco : listaDiscos) {
+			System.out.println(disco);
+		}
+	}
+	
+	private static Disco buscaDisco(Disco d) {
+		Disco d2 = null;
+		
+		for(Disco dLista : listaDiscos) {
+			if(d.equals(dLista)) {
+				d2 = dLista;
+			}
+		}
+		
+		return d2;
+	}
+	
+	public static boolean modificaAutor(Disco d, String autor) {
+		boolean res = false;
+		
+		Disco dModificar = buscaDisco(d);
+		
+		if(dModificar != null) {
+			dModificar.setAutor(autor);
+			res = true;
+		}
+		
+		return res;
 	}
 	
 	public static boolean eliminaDisco(Disco disco) {
-		boolean res = false;
-		boolean enc = false;
-		int i = 0;
-		//Disco disco;
-		
-//		while (i<listaDiscos.size() && !enc) {
-//			disco = listaDiscos.get(i);
-//			if(disco.getCodigo() == codigo) {
-//				listaDiscos.remove(i);
-//				enc = true;
-//			}
-//			i++;
-//		}
-		
-		res = listaDiscos.remove(disco);
-		
-		return res;
+		return listaDiscos.remove(disco);
 	}
 }

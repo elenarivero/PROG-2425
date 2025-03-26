@@ -1,24 +1,30 @@
 package ejemplos;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import paquete2.Empleado;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		Empleado e1 = new Empleado("12345678Z", "Pepe", 18, 1000);
-		Persona p1 = new Empleado("11111111H", "Paco", 20, 1000);
-		Persona p2 = new Persona("987654321T", "Manolo", 28);
-		String persona = "María";
+		List<Persona> lista = new ArrayList<Persona>();
+		Persona p1 = new Empleado("21111111H", "Paco", 20, 1000);
+		Persona p2 = new Empleado("11111111H", "Paco", 20, 1000);
+		Persona p3 = new Empleado("41111111H", "Paco", 20, 1000);
+		Persona p4 = new Empleado("31111111H", "Paco", 20, 1000);
+		p4.dormir();
+//		p1.antiguedad();
 		
-		System.out.println(p2.getClass().getSuperclass());
-		System.out.println();
-		System.out.println(e1.getClass().getSuperclass());
+		lista.add(p1);
+		lista.add(p2);
+		lista.add(p3);
+		lista.add(p4);
 		
-		System.out.println(p1.equals(e1));
+		Collections.sort(lista);
+		System.out.println(lista);
 		
-		if(p1 instanceof Empleado e2) {
-			System.out.println(e2.getSalario());
-		}
 	}
 
 }

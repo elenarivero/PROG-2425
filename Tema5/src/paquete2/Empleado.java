@@ -3,8 +3,9 @@ package paquete2;
 import java.util.Objects;
 
 import ejemplos.Persona;
+import ejemplos.Sonido;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona {
 	
 	private double salario;
 	
@@ -52,6 +53,17 @@ public class Empleado extends Persona{
 		}
 		
 		return res;
+		
+	}
+
+	public void antiguedad() {
+//		super.antiguedad();
+		this.salario += 500;
+	}
+
+	@Override
+	public void voz() {
+		// TODO Auto-generated method stub
 		
 	}
 

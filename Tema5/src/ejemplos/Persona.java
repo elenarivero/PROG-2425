@@ -1,6 +1,6 @@
 package ejemplos;
 
-public class Persona {
+public abstract class Persona implements Sonido, Comparable<Persona>{
 
 	protected String dni;
 	protected String nombre;
@@ -30,6 +30,9 @@ public class Persona {
 	}
 
 
+	
+	
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -50,5 +53,21 @@ public class Persona {
 		cadena += this.edad;
 		return cadena;
 	}
+
+
+	
+/**
+ * @return 0 si dos Personas son iguales, es decir, cuando los dnis son iguales
+ * >0 Cuando el dni esta Persona sea alfabéticamente mayor que el dni de la persona introducida
+ * <0 Cuando el dni esta Persona sea alfabéticamente menor que el dni de la persona introducida
+ */
+	@Override
+	public int compareTo(Persona o) {
+		return this.dni.compareTo(o.dni);
+	}
+	
+//	public void antiguedad() {
+//		this.edad++;
+//	}
 	
 }

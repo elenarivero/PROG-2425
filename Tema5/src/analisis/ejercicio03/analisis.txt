@@ -1,0 +1,42 @@
+class CuentaBancaria
+	- String numCuenta
+	# double saldo
+	- TreeSet<Titular> (mín: 1, máx: 3)
+	
+	+ CuentaBancaria(Titular t)
+	
+	+ boolean ingresar(double dinero)
+	+ boolean retirar(double dinero)
+	+ boolean addTitular(Titular)
+	+ boolean removeTitular(Titular)
+	
+class Titular
+	- String dni
+	- String nombre
+	- String apellidos
+	- long telefono
+	
+class CuentaCorriente extends CuentaBancaria
+	- List<Transaccion> transacciones
+	- double porcentaje
+	
+	+ realizarTransaccion(Transaccion t)
+
+class Transaccion
+	- int dia
+	- int mes
+	- int anyo
+	- String concepto
+	- double importe
+	
+	+ Transaccion(dia, mes, anyo, concepto, importe)
+	
+
+class CuentaAhorro extends CuentaBancaria
+	- double cuotaMantenimiento
+	- double interesAnual
+	
+	+ double aplicarInteres()
+	+ double aplicarMantenimiento()
+	
+	

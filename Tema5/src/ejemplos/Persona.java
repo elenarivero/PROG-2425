@@ -49,7 +49,7 @@ public abstract class Persona implements Sonido, Comparable<Persona>{
 	
 	@Override
 	public String toString() {
-		String cadena = this.dni + " - " + this.nombre + "\n";
+		String cadena = this.dni + " - " + this.nombre + " - ";
 		cadena += this.edad;
 		return cadena;
 	}

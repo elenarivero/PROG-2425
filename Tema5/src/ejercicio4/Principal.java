@@ -1,6 +1,7 @@
 package ejercicio4;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Principal {
@@ -13,23 +14,16 @@ public class Principal {
 
 		List<Electrodomestico> electrodomesticos = new ArrayList<Electrodomestico>();
 
-		Electrodomestico e1 = new Lavadora(100);
-		e1.calculaPrecio();
-		
-		electrodomesticos.add(new Lavadora(1000));
-		electrodomesticos.add(new Television(20));
-		electrodomesticos.add(new Lavadora(200));
-
-		for (Electrodomestico e : electrodomesticos) {
-
-			sumaElectrodomesticos += e.getPrecio();
+		try {
+			Electrodomestico e = new Electrodomestico(-200) ;
+		} catch (NegativePriceException e) {
+			System.out.println(e);
+		} catch (Exception e) {
 			
-			if (e instanceof Television) {
-				sumaTelevisiones += e.getPrecio();
-			} else if (e instanceof Lavadora) {
-				sumaLavadoras += e.getPrecio();
-			}
+		}finally {
+			
 		}
+			
 	}
 
 }

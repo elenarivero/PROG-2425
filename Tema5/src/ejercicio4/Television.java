@@ -2,14 +2,10 @@ package ejercicio4;
 
 public class Television extends Electrodomestico{
 
-	public Television(double p) {
+	public Television(double p) throws NegativePriceException {
 		super(p);
 	}
 	
-	@Override
-	public double calculaPrecio() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 }

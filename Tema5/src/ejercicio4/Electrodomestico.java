@@ -1,11 +1,16 @@
 package ejercicio4;
 
-public abstract class Electrodomestico {
+public class Electrodomestico {
 
 	private double precio = 0;
 	
-	public Electrodomestico(double p) {
-		precio = p;
+	public Electrodomestico(double p) throws NegativePriceException {
+		if(p >= 0) {
+			precio = p;
+		} else {
+			throw new NegativePriceException();
+		}
+		
 	}
 
 	public double getPrecio() {
@@ -16,9 +21,5 @@ public abstract class Electrodomestico {
 		precio = p;
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
-	public abstract double calculaPrecio();
+	
 }

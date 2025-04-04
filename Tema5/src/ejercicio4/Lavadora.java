@@ -3,7 +3,7 @@ package ejercicio4;
 public class Lavadora extends Electrodomestico {
 
 	
-	public Lavadora(double p) {
+	public Lavadora(double p) throws NegativePriceException {
 		super(p);
 	}
 

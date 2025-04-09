@@ -15,6 +15,9 @@ public abstract class Persona implements Sonido, Comparable<Persona>{
 	}
 
 
+	public static void print() {
+		
+	}
 	public String getDni() {
 		return dni;
 	}

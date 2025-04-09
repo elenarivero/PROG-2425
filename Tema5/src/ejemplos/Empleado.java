@@ -1,9 +1,6 @@
-package paquete2;
+package ejemplos;
 
 import java.util.Objects;
-
-import ejemplos.Persona;
-import ejemplos.Sonido;
 
 public class Empleado extends Persona {
 	
@@ -13,9 +10,14 @@ public class Empleado extends Persona {
 		super(dni, nombre, edad);
 	}
 
-	public Empleado(String dni, String nombre, int edad, double salario) {
-		super(dni, nombre, edad);
-		this.salario = salario;
+	public Empleado(String dni, String nombre, int edad, double salario) throws SalarioNegativoException {
+		this(dni, nombre, edad);
+		if(salario >= 0) {
+			this.salario = salario;
+		} else {
+			throw new SalarioNegativoException();
+		}
+		
 	}
 
 	public double getSalario() {

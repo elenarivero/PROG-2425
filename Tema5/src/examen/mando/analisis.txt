@@ -1,0 +1,105 @@
+class Mando implements Comparable
+	- String modelo 
+	- double anchura
+	- double altura
+	- double precio
+	- boolean encendido = false;
+	
+	+ Mando(modelo, anchura, altura) throws ModeloException
+	+ Mando(modelo, anchura, altura, precio)  throws ModeloException
+	
+	+ getModelo()
+	+ getAnchura()
+	+ getAltura()
+	+ getPrecio()
+	+ isEncendido()
+	
+	+ setPrecio()
+	
+	+ void onOff()
+	
+	override:
+		+ equals()
+		+ compareTo()
+		+ toString()
+	
+class MandoTelevision extends Mando implements Volumen
+	- int volumen = 0
+	- int canal = 1
+	
+	+ MandoTelevision(modelo, altura, anchura)
+	+ MandoTelevision(modelo, altura, anchura, precio)
+	
+	+ getVolumen()
+	+ getCanal()
+	
+	+ setCanal()
+	+ subirCanal()
+	+ bajarCanal()
+	
+	override:
+		+ void subirVolumen()
+		+ void bajarVolumen()
+		+ toString()
+
+class MandoMinicadena extends Mando implements Volumen
+	- int volumen = 0
+	
+	+ MandoMinicadena(modelo, altura, anchura)
+	+ MandoMinicadena(modelo, altura, anchura, precio)
+	
+	+ getVolumen()
+	
+	override:
+		+ void subirVolumen()
+		+ void bajarVolumen()
+		+ toString()
+
+class MandoAspiradora extends Mando implements Velocidad
+	- int velocidad = 0
+	
+	+ MandoAspiradora(modelo, altura, anchura)
+	+ MandoAspiradora(modelo, altura, anchura, precio)
+	
+	+ getVelocidad()
+	
+	override:
+		+ void subirVelocidad()
+		+ void bajarVelocidad()
+		+ toString()
+		
+class MandoAireAcondicionado extends Mando implements Velocidad
+	enum Modo {FRIO, CALOR}
+	- Modo modo = Modo.FRIO
+	- int temperatura = 24
+	- int velocidad = 0
+	
+	+ MandoAireAcondicionado(modelo, altura, anchura)
+	+ MandoAireAcondicionado(modelo, altura, anchura, precio)
+	
+	+ getModo()
+	+ getTemperatura()
+	+ getVelocidad()
+	
+	+ cambiarModo()
+	+ subirTemperatura()
+	+ bajarTemperatura()
+	
+	override:
+		+ void subirVelocidad()
+		+ void bajarVelocidad()
+		+ toString()
+
+class ComparaPrecio implements Comparator
+
+	
+class ModeloException extends Exception
+
+
+interface Volumen 
+	+ void subirVolumen()
+	+ void bajarVolumen()
+
+interface Velocidad
+	+ void subirVelocidad()
+	+ void bajarVelocidad()

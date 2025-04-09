@@ -20,6 +20,15 @@ public class Mando implements Comparable<Mando> {
 		
 	}
 	
+	/**
+	 * 
+	 * @param modelo
+	 * @param altura
+	 * @param anchura
+	 * @param precio
+	 * @throws ModeloException Se lanza cuando el modelo es null o vacío
+	 * @throws PrecioException Se lanza cuando el precio es negativo
+	 */
 	public Mando(String modelo, double altura, double anchura, double precio) throws ModeloException, PrecioException{
 		this(modelo, altura, anchura);
 		

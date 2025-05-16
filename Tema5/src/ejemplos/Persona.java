@@ -2,14 +2,28 @@ package ejemplos;
 
 public abstract class Persona implements Sonido, Comparable<Persona>{
 
+	/**
+	 * DNI de la persona
+	 */
 	protected String dni;
+	
+	/**
+	 * Nombre de la persona
+	 */
 	protected String nombre;
+	
+	/**
+	 * Edad de la persona
+	 */
 	protected int edad;
 	
 	
 	public Persona(String dni, String nombre, int edad) {
 		super();
-		this.dni = dni;
+		if(dni != null && !dni.isBlank()) {
+			
+			this.dni = dni;
+		}
 		this.nombre = nombre;
 		this.edad = edad;
 	}

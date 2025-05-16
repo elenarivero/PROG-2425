@@ -2,6 +2,10 @@ package ejemplos;
 
 import java.util.Objects;
 
+/**
+ * Clase Empleado para representar a los empleados
+ * Hereda de la clase Persona
+ */
 public class Empleado extends Persona {
 	
 	private double salario;

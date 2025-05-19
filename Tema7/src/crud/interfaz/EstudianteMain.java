@@ -1,6 +1,9 @@
-package crud;
+package crud.interfaz;
 
 import java.util.Scanner;
+
+import crud.dao.EstudianteDAO;
+import crud.entidades.Estudiante;
 
 public class EstudianteMain {
 
@@ -22,12 +25,15 @@ public class EstudianteMain {
 			while(opc != 0) {
 				switch(opc) {
 				case 1 -> {
+					// Leer datos del estudiante
 					est = leerDatos();
+					// Insertamos datos en la base de datos
 					estDAO.create(est);
 				}
 				case 2 -> System.out.println("Consultar");
 				case 3 -> System.out.println("Actualizar");
 				case 4 -> System.out.println("Eliminar");
+				default -> System.out.println("Opción no correcta");
 				}
 				
 				menu();

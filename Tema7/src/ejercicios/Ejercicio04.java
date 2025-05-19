@@ -11,7 +11,7 @@ import utils.Constantes;
 public class Ejercicio04 {
 
 	public static void main(String[] args) {
-		try(Connection con = DriverManager.getConnection(Constantes.url, Constantes.usuario, Constantes.contraseña)){
+		try(Connection con = DriverManager.getConnection(Constantes.URL, Constantes.USUARIO, Constantes.CONTRASEÑA)){
 			int[] res;
 			String consulta = "INSERT INTO cursos (nombre, descripcion, año_escolar)"
 					+ "VALUES (?, ?, ?)";

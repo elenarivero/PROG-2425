@@ -10,7 +10,7 @@ import utils.Constantes;
 public class Ejercicio07 {
 
 	public static void main(String[] args) {
-		try (Connection con = DriverManager.getConnection(Constantes.url, Constantes.usuario, Constantes.contraseña)) {
+		try (Connection con = DriverManager.getConnection(Constantes.URL, Constantes.USUARIO, Constantes.CONTRASEÑA)) {
 			String nombre = "Pepe";
 			String apellidos = "Martínez";
 			String fecha_nacimiento = "1999-05-01";

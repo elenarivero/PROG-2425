@@ -1,9 +1,11 @@
-package crud;
+package crud.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import crud.entidades.Estudiante;
 
 import static utils.Constantes.*;
 
@@ -14,14 +16,12 @@ public class EstudianteDAO {
 	public EstudianteDAO() {
 	
 		try {
-			conexion = DriverManager.getConnection(url, usuario, contraseña);
+			conexion = DriverManager.getConnection(URL, USUARIO, CONTRASEÑA);
 		} catch (SQLException e) {
 			System.out.println("Error al crear la conexión con la base de datos: " + e.getMessage());
 		}
 		
 	}
-
-	
 	
 	public Connection getConexion() {
 		return conexion;

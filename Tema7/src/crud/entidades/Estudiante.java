@@ -1,4 +1,4 @@
-package crud;
+package crud.entidades;
 
 public class Estudiante {
 

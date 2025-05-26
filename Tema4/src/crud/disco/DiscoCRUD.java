@@ -17,7 +17,7 @@ public class DiscoCRUD {
 		}
 	}
 	
-	private static Disco buscaDisco(Disco d) {
+	public static Disco buscaDisco(Disco d) {
 		Disco d2 = null;
 		
 		for(Disco dLista : listaDiscos) {
@@ -28,6 +28,7 @@ public class DiscoCRUD {
 		
 		return d2;
 	}
+	
 	
 	public static boolean modificaAutor(Disco d, String autor) {
 		boolean res = false;

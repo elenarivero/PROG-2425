@@ -46,24 +46,58 @@ public class BusquedaTesoro {
 		}
 	}
 
+	/**
+	 * Método que comprueba si hay obstáculos en la diagonal de una posición dada
+	 * 
+	 * @param iObst Posición i
+	 * @param jObst Posición j
+	 * @return Devuelve true si hay algún obstáculo en la diagonal, false si no hay
+	 *         ninguno
+	 */
 	private static boolean obstaculosAlrededor(int iObst, int jObst) {
-		boolean res = false;
-		int i = (iObst - 1) < 0 ? iObst + 1 : (iObst - 1);
+		// De inicio no hemos encontrado ningún obstáculo
+		boolean enc = false;
+
+		// Inicializamos la i a la posición -1 para comprobar la diagonal hacia arriba
+		int i = iObst - 1;
 		int j;
 
-		while (i <= iObst + 1 && i < tablero.length && !res) {
-			j = (jObst - 1) < 0 ? jObst + 1 : (jObst - 1);
-			while (j <= jObst + 1 && j < tablero[i].length && !res) {
+		// Si la i tiene un valor negativo la inicializamos a uno más, diagonal hacia
+		// abajo
+		if (i < 0) {
+			i = iObst + 1;
+		}
 
+		// Recorremos la i. Comprobamos que no nos salimos del tablero y que no nos
+		// pasamos de la diagonal. También se comprueba que no hemos encontrado todavía
+		// ningún obstáculo
+		while (i < tablero.length && i <= iObst + 1 && !enc) {
+			// Inicializamos la j. Si el jObst-1 <0 significa que nos salimos por la
+			// izquierda del tablero, y en ese caso inicializamos a un valor +1, la diagonal
+			// hacia la derecha
+			j = (jObst - 1) < 0 ? jObst + 1 : (jObst - 1);
+
+			// Mientras no lleguemos al límite del tablero y no nos pasemos de la diagonal.
+			// También comprobamos que no hayamos encontrado un obstáculo previamente
+			while (j < tablero[i].length && j <= jObst + 1 && !enc) {
+
+				// Si en la posición que estamos consultando hay un obstáculo ponemos enc=true y
+				// así salirnos de ambos bucles
 				if (tablero[i][j] == '*') {
-					res = true;
+					// Una vez hemos encontrado un obstáculo no hay que seguir buscando
+					enc = true;
 				}
 
+				// Sumamos 2 para irnos a la diagonal derecha
 				j += 2;
 			}
+
+			// Sumamos 2 para irnos a la diagonal hacia abajo
 			i += 2;
 		}
-		return res;
+
+		// Devolvemos si se ha encontrado obstáculo o no
+		return enc;
 	}
 
 	public static void generaPosicionJugador() {
@@ -75,11 +109,17 @@ public class BusquedaTesoro {
 		} while (tablero[posI][posJ] != ' ');
 
 	}
-	
-	
+
 	public static void pintaTablero() {
-		
+		for (int i = 0; i < tablero[0].length; i++) {
+			System.out.print("\t" + (char) (i + 'A'));
+		}
+
+		System.out.println();
+
 		for (int i = 0; i < tablero.length; i++) {
+			System.out.print(i + 1);
+
 			for (int j = 0; j < tablero[i].length; j++) {
 				if (posI == i && posJ == j) {
 					System.out.print("\tJ");
@@ -89,8 +129,9 @@ public class BusquedaTesoro {
 					System.out.print("\t" + tablero[i][j]);
 				}
 			}
+
+			System.out.println();
 		}
 	}
 
-	
 }

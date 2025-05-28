@@ -111,27 +111,74 @@ public class BusquedaTesoro {
 	}
 
 	public static void pintaTablero() {
+		// bucle para pintar la primera fila que son los números de las columnas
 		for (int i = 0; i < tablero[0].length; i++) {
 			System.out.print("\t" + (char) (i + 'A'));
 		}
 
+		// Salto de línea para empezar a pintar la segunda línea
 		System.out.println();
 
+		// Hacemos un recorrido normal de toda la tabla
+		// Bucle para recorrer las filas
 		for (int i = 0; i < tablero.length; i++) {
+			// Por cada fila lo primero que se pinta es el número de fila
 			System.out.print(i + 1);
 
+			// Recorremos las columnas de la fila i
 			for (int j = 0; j < tablero[i].length; j++) {
 				if (posI == i && posJ == j) {
+					// Si nos encontramos en la posición del jugador pintamos una J
 					System.out.print("\tJ");
 				} else if (tablero[i][j] == 'X') {
+					// Si en la posición actual se encuentra el tesoro no pintamos nada, sólo el
+					// tabulador
 					System.out.print("\t");
 				} else {
+					// En cualquier otro caso pintamos el contenido de la tabla, que puede ser o
+					// espacios u obstáculos
 					System.out.print("\t" + tablero[i][j]);
 				}
 			}
 
+			// Al final de cada línea se pinta un salto de línea para volver a comenzar a
+			// pintar la fila siguiente
 			System.out.println();
 		}
 	}
 
+	/**
+	 * Método encargado del movimiento del jugador, recibirá una cadena que indicará
+	 * cómo se debe mover y devolverá un valor entero para representar el resultado
+	 * del movimiento
+	 * 
+	 * @param movimiento Representa al movimiento del jugador. Los valores posibles
+	 *                   son ARRIBA, ABAJO, IZQUIERDA, DERECHA. No distingue entre
+	 *                   mayúsculas o minúsculas
+	 * @return Devuelve un valor entero atendiendo al resultado del movimiento: 0 si
+	 *         el movimiento es correcto y el jugador se ha movido; -1 si el
+	 *         movimiento es correcto pero el jugador no se ha podido mover por
+	 *         encontrarse un obstáculo o el borde del tablero; -2 si el movimiento
+	 *         introducido no es válido
+	 */
+	public static int mueveJugador(String movimiento) {
+		int res = 0;
+
+		switch (movimiento.toUpperCase()) {
+		case "ARRIBA" -> {
+			System.out.println("ARRIBA");
+		}
+		case "ABAJO" -> {
+			System.out.println("ABAJO");
+		}
+		case "DERECHA" -> {
+			System.out.println("DERECHA");
+		}
+		case "IZQUIERDA" -> {
+			System.out.println("IZQUIERDA");
+		}
+		}
+
+		return res;
+	}
 }

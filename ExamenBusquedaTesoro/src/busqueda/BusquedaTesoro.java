@@ -162,21 +162,34 @@ public class BusquedaTesoro {
 	 *         introducido no es válido
 	 */
 	public static int mueveJugador(String movimiento) {
-		int res = 0;
+		int res = -1;
 
 		switch (movimiento.toUpperCase()) {
 		case "ARRIBA" -> {
-			System.out.println("ARRIBA");
+			if (posI - 1 >= 0 && tablero[posI - 1][posJ] != '*') {
+				posI--;
+				res = 0;
+			}
 		}
 		case "ABAJO" -> {
-			System.out.println("ABAJO");
+			if (posI + 1 < tablero.length && tablero[posI + 1][posJ] != '*') {
+				posI++;
+				res = 0;
+			}
 		}
 		case "DERECHA" -> {
-			System.out.println("DERECHA");
+			if (posJ + 1 < tablero[0].length && tablero[posI][posJ + 1] != '*') {
+				posJ++;
+				res = 0;
+			}
 		}
 		case "IZQUIERDA" -> {
-			System.out.println("IZQUIERDA");
+			if (posJ - 1 >= 0 && tablero[posI][posJ - 1] != '*') {
+				posJ--;
+				res = 0;
+			}
 		}
+		default -> res = -2;
 		}
 
 		return res;

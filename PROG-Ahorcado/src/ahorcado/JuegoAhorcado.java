@@ -24,7 +24,8 @@ public class JuegoAhorcado {
 		palabraPista = "_".repeat(palabraSecreta.length());
 	}
 
-	static void compruebaLetra(char letra) {
+	static boolean compruebaLetra(char letra) {
+		boolean res = false;
 		char nuevaLetra = Character.toLowerCase(letra);
 		char[] arrayPista = palabraPista.toCharArray();
 
@@ -33,6 +34,7 @@ public class JuegoAhorcado {
 		if(pos < 0) {
 			noAcertadas += nuevaLetra + " ";
 		} else {
+			res = true;
 			while (pos >= 0) {
 				arrayPista[pos] = letra;
 				pos = palabraSecreta.indexOf(nuevaLetra, pos+1);
@@ -40,6 +42,7 @@ public class JuegoAhorcado {
 		}
 		
 		palabraPista = String.valueOf(arrayPista);
+		return res;
 	}
 	
 	static void compruebaPalabra(String palabra) {

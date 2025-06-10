@@ -1,0 +1,85 @@
+clase abstract Personaje implements Comparable<Personaje>
+	- String nombre
+	- int nivel: 0
+	- int pVida
+	- int pMana
+	- boolean escudo: false
+	
+	- List<Pocion> pociones = new ArrayList<Pocion>()
+	
+	+ Personaje(nombre, pVida, pMana) throws VidaNegativaException, ManaNegativoException
+	
+	+ String getNombre()
+	+ int getNivel()
+	+ int getPVida()
+	+ int getPMana()
+	+ boolean isEscudo()
+	
+	+ void setNivel(int nivel)
+	+ void activaEscudo()
+	
+	+ void recibirDaño(int daño)
+	+ void recuperarVida(int vida)
+	+ void recuperarMana(int mana)
+	+ boolean cogerPocion(Pocion pocion)
+	+ boolean usarPocion(Pocion pocion)
+	
+	heredados:
+		+ boolean equals(Object personaje)
+		+ int compareTo(Personaje personaje)
+		+ String toString()
+		
+	
+clase Pocion
+	enum Tipo {VIDA, MANÁ}
+	- Tipo tipoPocion
+	- int cantidad
+	
+	Pocion(String tipo, int cantidad)
+	
+	+ String getTipoPocion()
+	+ int getCantidad()
+	
+	heredados:
+		+ String toString()
+		+ boolean equals(Object pocion)
+	
+clase Guerrero extends Personaje implements Ataque, Defensa
+
+	Guerrero(nombre, pVida, pMana)
+	
+	heredados:
+		+ atacar(Personaje enemigo, int daño)
+		+ void defender(Persona personaje)
+		+ String toString()
+		
+clase Picaro extends Personaje implements Ataque
+
+	+ Picaro(nombre, pVida, pMana)
+	
+	heredados:
+		+ atacar(Personaje enemigo, int daño)
+		+ String toString()
+
+clase Mago extends Personaje implements Ataque, Cura	
+	
+	+ Mago(nombre, pVida, pMana)
+	
+	heredados:
+		+ atacar(Personaje enemigo, int daño)
+		+ curar(Personaje aliado)
+		+ String toString()
+
+
+interfaz Defensa
+	+ boolean defender(Persona personaje)
+	
+interfaz Ataque
+	+ boolean atacar(Personaje enemigo)
+	
+interfaz Cura
+	+ boolean curar(Personaje aliado)
+
+class ManaNegativoException extends Exception
+class VidaNegativaException extends Exception
+	
